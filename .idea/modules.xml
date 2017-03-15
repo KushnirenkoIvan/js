@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/js.iml" filepath="$PROJECT_DIR$/js.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mc/mc.iml" filepath="$PROJECT_DIR$/mc/mc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stepik-ws/stepik-ws.iml" filepath="$PROJECT_DIR$/stepik-ws/stepik-ws.iml" />
+    </modules>
+  </component>
+</project>
