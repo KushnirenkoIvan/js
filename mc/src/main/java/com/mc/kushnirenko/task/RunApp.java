@@ -1,4 +1,4 @@
-package com.mc.kushnirenko;
+package com.mc.kushnirenko.task;
 
 import java.util.Locale;
 import java.util.Scanner;

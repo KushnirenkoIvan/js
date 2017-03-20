@@ -1,4 +1,4 @@
-package com.mc.kushnirenko;
+package com.mc.kushnirenko.task;
 
 import org.apache.log4j.Appender;
 import org.apache.log4j.FileAppender;
