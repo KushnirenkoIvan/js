@@ -1,0 +1,25 @@
+body {
+    background-color: lightblue;
+    background-image: url("res/logo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#form {
+    border: 1px solid;
+    padding: 10px;
+    background: peachpuff;
+    border-radius: 5px
+}
+
+#buttonDiv {
+    padding-left: 58%;
+    padding-top: 5px
+}
+
+#formDiv {
+    width: 10%;
+    /*align-self: center;*/
+    padding-left: 45%;
+    padding-top: 25%
+}

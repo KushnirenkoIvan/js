@@ -6,6 +6,8 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.stepik.kushnirenko.servlet.AllRequestsServlet;
 import org.stepik.kushnirenko.servlet.HW01RequestServlet;
+import org.stepik.kushnirenko.servlet.SignInServlet;
+import org.stepik.kushnirenko.servlet.SignUpServlet;
 
 
 public class RunApp {
@@ -16,9 +18,12 @@ public class RunApp {
         AllRequestsServlet ars = new AllRequestsServlet();
         HW01RequestServlet hw01 = new HW01RequestServlet();
 
+        SignUpServlet signUpServlet = new SignUpServlet();
+        SignInServlet signInServlet = new SignInServlet();
+
         ServletContextHandler servletHandler = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        servletHandler.addServlet(new ServletHolder(ars), "/page.html");
-        servletHandler.addServlet(new ServletHolder(hw01), "/mirror");
+        servletHandler.addServlet(new ServletHolder(signUpServlet), "/signup");
+        servletHandler.addServlet(new ServletHolder(signInServlet), "/signin");
 
         Server server = new Server(8080);
         server.setHandler(servletHandler);
