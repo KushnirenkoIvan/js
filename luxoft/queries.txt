@@ -1,0 +1,16 @@
+We have 2 tables in a relational database:
+    • Clients (client_id(PK), client_name)
+    • Orders (order_id(PK), client_id, order_sum, order_date)
+
+Please write the following SQL queries:
+  a- list of clients, which have an order with order_sum > 50
+
+  SELECT *
+  FROM Clients
+  WHERE client_id IN (SELECT DISTINCT client_id FROM Orders WHERE order_sum > 50);
+
+  b- clients, whose total sum of orders exceeds 100
+
+   SELECT *
+   FROM Clients
+   WHERE client_id IN (SELECT client_id FROM Orders GROUP BY client_id HAVING SUM(order_sum) > 100);
