@@ -12,6 +12,12 @@
     <modules>
         <module>mc</module>
         <module>stepik-ws</module>
+        <module>luxoft</module>
     </modules>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
 </project>
