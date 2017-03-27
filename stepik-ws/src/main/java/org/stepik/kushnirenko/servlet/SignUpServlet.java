@@ -25,7 +25,7 @@ public class SignUpServlet extends HttpServlet {
 
         UserProfile profile = new UserProfile(login, password, "");
         try {
-            if (accountService.signUpUser(profile)) {
+            if (accountService.signUpUser(profile) != null) {
                 response.setContentType("text/html;charset=utf-8");
                 response.setStatus(HttpServletResponse.SC_OK);
                 return;
