@@ -1,5 +1,7 @@
 package org.stepik.kushnirenko.service;
 
+import org.stepik.kushnirenko.dao.UserProfileDao;
+import org.stepik.kushnirenko.dao.UserProfileDaoImpl;
 import org.stepik.kushnirenko.domain.UserProfile;
 import org.stepik.kushnirenko.exception.InvalidUserProfileException;
 
@@ -9,31 +11,30 @@ import java.util.Map;
 
 public class AccountService {
 
-    private static Map<String, UserProfile> user_map = new HashMap<>(10);
     private static Map<String, UserProfile> session_map = new HashMap<>(10);
+
+    private UserProfileDao dao = new UserProfileDaoImpl();
 
     public UserProfile signUpUser(UserProfile user) throws InvalidUserProfileException {
         if (user == null || user.getLogin().isEmpty() || user.getPassword().isEmpty())
             throw new InvalidUserProfileException("User login and password cannot be null!");
 
-        if (user_map.containsKey(user.getLogin())) return null;
+        dao.create(user);
 
-        synchronized (this) {
-            return user_map.put(user.getLogin(), user);
-        }
+        return user;
     }
 
     public UserProfile getUserByLogin(String login) {
         if (login == null || login.isEmpty()) throw new IllegalArgumentException();
 
-        return user_map.get(login);
+        return dao.readByLogin(login);
     }
 
-    public UserProfile addSession(String sessionId, UserProfile profile) {
-        if (sessionId == null || sessionId.isEmpty() || profile == null) throw new IllegalArgumentException();
+    public UserProfile addSession(String sessionId, UserProfile user) {
+        if (sessionId == null || sessionId.isEmpty() || user == null) throw new IllegalArgumentException();
 
         synchronized (this) {
-            return session_map.put(sessionId, profile);
+            return session_map.put(sessionId, user);
         }
     }
 
