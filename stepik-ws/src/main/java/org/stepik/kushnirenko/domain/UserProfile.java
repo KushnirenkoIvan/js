@@ -1,16 +1,41 @@
 package org.stepik.kushnirenko.domain;
 
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "UserProfile")
 public class UserProfile {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "name", unique = true, updatable = false)
     private String login;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "email")
     private String email;
+
+    public UserProfile() {
+    }
+
+    public UserProfile(long id) {
+        this.id = id;
+    }
 
     public UserProfile(String login, String password, String email) {
         this.login = login;
         this.password = password;
         this.email = email;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getLogin() {
