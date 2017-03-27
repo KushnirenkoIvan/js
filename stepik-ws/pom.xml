@@ -53,6 +53,12 @@
             <artifactId>h2</artifactId>
             <version>1.4.194</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.0.Final</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -73,7 +79,7 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <outputDirectory>${basedir}/verification/HW02</outputDirectory>
+                    <outputDirectory>${basedir}/verification/HW03</outputDirectory>
                     <finalName>server</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
