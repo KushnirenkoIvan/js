@@ -6,13 +6,11 @@ import org.springframework.stereotype.Service;
 import ua.kushnirenko.dao.SourceDao;
 import ua.kushnirenko.entity.SourceEntity;
 
-import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 
 @Service
-@Transactional
 public class SourceServiceImpl implements SourceService {
 
     public static Logger log = Logger.getLogger(SourceServiceImpl.class);
@@ -54,7 +52,7 @@ public class SourceServiceImpl implements SourceService {
 
     @Override
     public List getPlatformStatistics() {
-        List<SourceEntity> sourceEntity_lst = dao.getAll();
+        List<SourceEntity> sourceEntity_lst = dao.getPlatformStatistics();
         log.info("Platform statistics is obtained from db.");
         return sourceEntity_lst;
     }

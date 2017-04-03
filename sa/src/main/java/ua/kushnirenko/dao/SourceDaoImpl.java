@@ -1,8 +1,6 @@
 package ua.kushnirenko.dao;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ua.kushnirenko.entity.SourceEntity;
@@ -32,15 +30,32 @@ public class SourceDaoImpl implements SourceDao {
 
     public void update(SourceEntity sr) {
         Session session = sessionFactory.openSession();
-        session.update(sr);
-        session.close();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(sr);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+        } finally {
+            session.close();
+        }
     }
 
     public SourceEntity delete(long id) {
         Session session = sessionFactory.openSession();
-        SourceEntity sr = (SourceEntity) session.get(SourceEntity.class, id);
-        session.delete(sr);
-        session.close();
+        SourceEntity sr = null;
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            sr = (SourceEntity) session.get(SourceEntity.class, id);
+            session.delete(sr);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+        } finally {
+            session.close();
+        }
         return sr;
     }
 

@@ -16,3 +16,14 @@ span {
     width: 80px;
     align-content: center;
 }
+
+#block {
+    padding-top: 10px;
+    padding-left: 30px;
+
+}
+
+#response {
+    padding-top: 20px;
+    font-family: "DejaVu Sans Mono", monospace;
+}

@@ -29,8 +29,8 @@ public class DashboardController {
             return new ResponseEntity<>(sr, HttpStatus.CONFLICT);
     }
 
-    @GetMapping("/get")
-    public ResponseEntity getSource(@RequestParam Long id) {
+    @GetMapping("/get/{id}")
+    public ResponseEntity getSource(@PathVariable Long id) {
         if (id == null) return ResponseEntity.badRequest().body("'id' must be positive integer!");
         SourceEntity sr = service.getEntity(id);
         if (sr != null) return ResponseEntity.ok().body(sr);
@@ -46,12 +46,19 @@ public class DashboardController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteSource(@PathVariable Long id) {
         SourceEntity sr = service.deleteEntity(id);
+        if (sr == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok().body(sr);
     }
 
     @GetMapping("/getAll")
     public List<SourceEntity> getAll() {
         List<SourceEntity> entity_lst = service.getAll();
+        return entity_lst;
+    }
+
+    @GetMapping("/getStat")
+    public List<SourceEntity> getStat() {
+        List<SourceEntity> entity_lst = service.getPlatformStatistics();
         return entity_lst;
     }
 }

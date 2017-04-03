@@ -12,27 +12,33 @@
     <fieldset>
         <legend><span>simple_dashboard</span></legend>
 
-        <form method="GET" action="/get">
-            <p>
-                <input type="submit" value="GetById" class="button">
-                <input type="text" name="id" placeholder="Enter id">
-            </p>
-        </form>
-
-        <form method="GET" action="/getAll">
-            <p>
-                <input type="submit" value="GetAll" class="button">
-            </p>
-        </form>
-
         <p>
-            <input type="submit" value="Delete" class="button" onclick="restDelete()">
-            <input type="text" id="deleteVal" placeholder="Enter id for delete...">
+            <input type="submit" value="Get" class="button" onclick="getEntity()">
+            <input type="text" id="getEntity" placeholder="id...">
         </p>
 
+        <p>
+            <input type="submit" value="Create" class="button" onclick="createEntity()">
+            <input type="text" id="createEntity" placeholder="json represent entity...">
+        </p>
+
+        <p>
+            <input type="submit" value="Update" class="button" onclick="updateEntity()">
+            <input type="text" id="updateEntity" placeholder="json represent entity...">
+        </p>
+
+        <p>
+            <input type="submit" value="Delete" class="button" onclick="deleteEntity()">
+            <input type="text" id="deleteId" placeholder="id for delete...">
+        </p>
+
+        <p id="block">
+            <input type="submit" value="GetAll" class="button" onclick="getAll()">
+            <input type="submit" value="GetStat" class="button" onclick="getStat()">
+        </p>
     </fieldset>
 </div>
-<div>
+<div id="response">
 </div>
 </body>
 </html>
