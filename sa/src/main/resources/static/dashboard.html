@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dashboard</title>
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<div>
+    <fieldset>
+        <legend><span>simple_dashboard</span></legend>
+
+        <form method="GET" action="/get">
+            <p>
+                <input type="submit" value="GetById" class="button">
+                <input type="text" name="id" placeholder="Enter id">
+            </p>
+        </form>
+
+        <form method="GET" action="/getAll">
+            <p>
+                <input type="submit" value="GetAll" class="button">
+            </p>
+        </form>
+
+        <p>
+            <input type="submit" value="Delete" class="button" onclick="restDelete()">
+            <input type="text" id="deleteVal" placeholder="Enter id for delete...">
+        </p>
+
+    </fieldset>
+</div>
+<div>
+</div>
+</body>
+</html>
