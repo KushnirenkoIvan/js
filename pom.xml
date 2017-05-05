@@ -13,6 +13,7 @@
         <module>mc</module>
         <module>stepik-ws</module>
         <module>luxoft</module>
+        <module>sa</module>
     </modules>
 
     <properties>
